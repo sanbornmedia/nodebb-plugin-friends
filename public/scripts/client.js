@@ -1,20 +1,19 @@
-
+'use strict';
 
 $(document).ready(function() {
-
 	$(window).on('action:ajaxify.end', function(ev, data) {
 		$('#users-container, .pending-friends').on('click', '.friend-button', addFriendFunctionality);
 	});
 
 	$(window).on('action:ajaxify.contentLoaded', function(ev, data) {
-		if (data.tpl === 'account') {
+		if (data.tpl === 'account/profile') {
 			var uid = $('[data-uid]').attr('data-uid');
-
 			socket.emit('plugins.friends.areFriendsOrRequested', {uid: uid}, function(err, isFriend) {
+				if (err) console.log('>>> friend err', err);
 				if (isFriend[0]) {
-					$('#follow-btn').after(' <button class="btn btn-link btn-sm friend-button" data-uid="' + uid + '" data-type="unfriend">Remove Friend</button>');
+					$('.avatar-wrapper .btn-morph.fab').after(' <button class="btn btn-link btn-sm friend-button" data-uid="' + uid + '" data-type="unfriend">Remove Friend</button>');
 				} else {
-					$('#follow-btn').after(' <button class="btn btn-warning btn-sm friend-button" data-uid="' + uid + '" data-type="friend">Add Friend</button>');
+					$('.avatar-wrapper .btn-morph.fab').after(' <button class="btn btn-warning btn-sm friend-button" data-uid="' + uid + '" data-type="friend">Add Friend</button>');
 				}
 
 				$('.friend-button').on('click', addFriendFunctionality);
@@ -30,7 +29,7 @@ $(document).ready(function() {
 	function friendCommand(type, uid, btn) {
 		socket.emit('plugins.friends.' + type, {
 			uid: uid
-		}, function(err) {
+		}, function (err) {
 			if (err) {
 				return app.alertError(err.message);
 			}

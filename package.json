@@ -1,26 +1,58 @@
 {
-  "name": "nodebb-plugin-friends",
-  "version": "1.1.6",
+  "_from": "nodebb-plugin-friends",
+  "_id": "nodebb-plugin-friends@1.1.6",
+  "_inBundle": false,
+  "_integrity": "sha1-C3MWRDk1hu2KUQaQQemiuW3r/XQ=",
+  "_location": "/nodebb-plugin-friends",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "nodebb-plugin-friends",
+    "name": "nodebb-plugin-friends",
+    "escapedName": "nodebb-plugin-friends",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nodebb-plugin-friends/-/nodebb-plugin-friends-1.1.6.tgz",
+  "_shasum": "0b731644393586ed8a51069041e9a2b96debfd74",
+  "_spec": "nodebb-plugin-friends",
+  "_where": "/Users/robert/Development/nodebb",
+  "author": {
+    "name": "Baris Usakli",
+    "email": "baris@designcreateplay.com"
+  },
+  "bugs": {
+    "url": "https://github.com/NodeBB/nodebb-plugin-friends/issues"
+  },
+  "dependencies": {
+    "async": "~0.9.0"
+  },
+  "deprecated": false,
   "description": "Friendship plugin ala facebook",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/NodeBB/nodebb-plugin-friends"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "homepage": "https://github.com/NodeBB/nodebb-plugin-friends#readme",
   "keywords": [
     "nodebb",
     "plugin",
     "friends"
   ],
-  "author": "Baris Usakli <baris@designcreateplay.com>",
   "license": "MIT",
-  "dependencies": {
-    "async": "~0.9.0"
-  },
+  "main": "index.js",
+  "name": "nodebb-plugin-friends",
   "nbbpm": {
     "compatibility": "^0.7.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NodeBB/nodebb-plugin-friends.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.6"
 }
