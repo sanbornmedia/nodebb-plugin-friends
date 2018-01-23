@@ -1,6 +1,6 @@
 {
   "_from": "nodebb-plugin-friends",
-  "_id": "nodebb-plugin-friends@1.1.6",
+  "_id": "nodebb-plugin-friends@1.1.7",
   "_inBundle": false,
   "_integrity": "sha1-C3MWRDk1hu2KUQaQQemiuW3r/XQ=",
   "_location": "/nodebb-plugin-friends",
@@ -54,5 +54,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.1.6"
+  "version": "1.1.7"
 }
