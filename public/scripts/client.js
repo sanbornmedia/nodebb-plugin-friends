@@ -8,12 +8,15 @@ $(document).ready(function() {
 	$(window).on('action:ajaxify.contentLoaded', function(ev, data) {
 		if (data.tpl === 'account/profile') {
 			var uid = $('[data-uid]').attr('data-uid');
-			socket.emit('plugins.friends.areFriendsOrRequested', {uid: uid}, function(err, isFriend) {
+			socket.emit('plugins.friends.areFriendsOrRequested', {uid: uid}, function(err, result) {
 				if (err) console.log('>>> friend err', err);
-				if (isFriend[0]) {
-					$('.avatar-wrapper .btn-morph.fab').after(' <button class="btn btn-link btn-sm friend-button" data-uid="' + uid + '" data-type="unfriend">Remove Friend</button>');
-				} else {
+				if ( result.userRoles.roles.includes('vendor') || result.toUserRoles.roles.includes('vendor') ) {
+					$('.avatar-wrapper .btn-morph.fab').after('');
+					return;
+				} else if (!result.isFriends[0]){
 					$('.avatar-wrapper .btn-morph.fab').after(' <button class="btn btn-warning btn-sm friend-button" data-uid="' + uid + '" data-type="friend">Add Friend</button>');
+				} else {
+					$('.avatar-wrapper .btn-morph.fab').after(' <button class="btn btn-link btn-sm friend-button" data-uid="' + uid + '" data-type="unfriend">Remove Friend</button>');
 				}
 
 				$('.friend-button').on('click', addFriendFunctionality);
