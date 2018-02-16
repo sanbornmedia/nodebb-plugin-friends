@@ -10,7 +10,10 @@ $(document).ready(function() {
 			var uid = $('[data-uid]').attr('data-uid');
 			socket.emit('plugins.friends.areFriendsOrRequested', {uid: uid}, function(err, result) {
 				if (err) console.log('>>> friend err', err);
-				if ( result.userRoles.roles.includes('vendor') || result.toUserRoles.roles.includes('vendor') ) {
+				if ( (result.userRoles.roles && result.userRoles.roles.includes('vendor'))
+					|| (result.toUserRoles.roles && result.toUserRoles.roles.includes('vendor'))
+					|| result.profileIncomplete 
+				) {
 					$('.avatar-wrapper .btn-morph.fab').after('');
 					return;
 				} else if (!result.isFriends[0]){
