@@ -5,7 +5,6 @@
     },
     "hooks": [
 		{ "hook": "static:app.load", "method": "init"},
-		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
         { "hook": "filter:plugin.write-api.routes", "method": "initWriteRoutes" },
         { "hook": "filter:user.following", "method": "listUids"}
     ],

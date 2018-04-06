@@ -12,7 +12,6 @@ $(document).ready(function() {
 				if (err) console.log('>>> friend err', err);
 				if ( (result.userRoles.roles && result.userRoles.roles.includes('vendor'))
 					|| (result.toUserRoles.roles && result.toUserRoles.roles.includes('vendor'))
-					|| result.profileIncomplete 
 				) {
 					$('.avatar-wrapper .btn-morph.fab').after('');
 					return;
